@@ -16,16 +16,11 @@ class UserController extends Controller
             'email' => ['required', 'min:10', 'max:50', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'max:50'],
         ]);
-        $incomingFields['password'] = bcrypt($incomingFields['password']);
+        $user = new User($incomingFields);
+        $user->password = bcrypt($incomingFields['password']);
+        $user->save();
 
-        $user = User::create($incomingFields);
         Auth::login($user);
-        return redirect('/');
-    }
-
-    public function logout()
-    {
-        Auth::logout();
         return redirect('/');
     }
 
@@ -35,13 +30,21 @@ class UserController extends Controller
             'loginname' => ['required'],
             'loginpassword' => ['required'],
         ]);
-        if (Auth::attempt([
+
+        $successfulLogin = Auth::attempt([
             'name' => $incomingFields['loginname'],
             'password' => $incomingFields['loginpassword']
-        ])) {
+        ]);
+
+        if ($successfulLogin) {
             $request->session()->regenerate();
         }
+        return redirect('/');
+    }
 
+    public function logout()
+    {
+        Auth::logout();
         return redirect('/');
     }
 }
