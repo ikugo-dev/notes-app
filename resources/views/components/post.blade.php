@@ -1,6 +1,7 @@
 <div class="post">
-    <h3>{{$post->user->name}}: {{$post['title']}}</h3>
-    <span>{{$post['content']}}</span>
+    <h2><b>{{$post->user->name}}:</b> {{$post['title']}}</h2>
+    <br>
+    <span class="whitespace-pre-line">{{$post['content']}}</span>
     <div class="float-right flex">
         <form action="/edit-post/{{$post->id}}" method="get">
             @csrf
