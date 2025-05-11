@@ -2,8 +2,10 @@
 
 A simple notes app implemented using Laravel.
 
-<img src="example1.png" alt="website screenshot" width="300"/>
-<img src="example2.png" alt="website screenshot" width="500"/>
+<p float="left">
+  <img src="/example1.png" width="300" />
+  <img src="/example2.png" width="500" />
+</p>
 
 Users can log in or register and then create new posts or edit old ones.
 Other users cannot access your notes without proper credentials.
