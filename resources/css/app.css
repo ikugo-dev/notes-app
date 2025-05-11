@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@source "../views";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -8,4 +9,30 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+input, textarea {
+     @apply w-96 border-black border-2 p-2.5 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFA6F6] active:shadow-[2px_2px_0px_rgba(0,0,0,1)] rounded-md;
+}
+
+
+.post {
+    @apply max-w-100 h-full m-4 p-8 pb-12 border-black border-2 rounded-md hover:shadow-[8px_8px_0px_rgba(0,0,0,1)] bg-white;
+}
+
+button {
+     @apply h-12 border-black border-2 p-2.5 bg-[#A6FAFF] hover:bg-[#79F7FF] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:bg-[#00E1EF] rounded-md;
+}
+
+button.has-svg {
+    @apply border-black border-2 rounded-md w-10 h-10;
+}
+
+button.pink {
+    @apply bg-[#FFA6F6] hover:bg-[#fa8cef] active:bg-[#f774ea];
+}
+button.cyan {
+    @apply bg-[#A6FAFF] hover:bg-[#79F7FF] active:bg-[#53f2fc]
+}
+button.green {
+    @apply bg-[#B8FF9F] hover:bg-[#9dfc7c] active:bg-[#7df752]
 }
